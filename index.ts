@@ -26,7 +26,7 @@ app.get("/getMoviesByTitle", async (request: { query: { title: string | undefine
     if (request.query.title) {
         respuesta = await obtenerPeliculasPorTitulo(request.query.title);
     } else {
-        respuesta = "Error";
+        respuesta = "Error obteniendo películas por título.";
     }
     console.log(respuesta);
     response.send(respuesta);
@@ -70,7 +70,9 @@ async function obtenerDetalle(movieId: string): Promise<{ title: string, year: n
     } catch (error) {
         console.log(`Error conectando a base de datos: `, error);
     }
-    let query = { "_id": new ObjectId(movieId) };
+    let query = {
+        "_id": new ObjectId(movieId)
+    };
 
     let projection = {
         "title": 1,
