@@ -98,7 +98,7 @@ async function obtenerComentarios(movieId: string): Promise<{ name: string, emai
         console.log(`Error conectandose a la base de datos: `, error);
     }
     let query = { "movie_id": new ObjectId(movieId) };
-    console.log("La query es: ", query);
+    console.log("La sentencia es: ", query);
 
     let projection = {
         "name": 1,
