@@ -116,7 +116,6 @@ app.post("/addComment", async (request: { body: { name: string, email: string, m
 });
 
 async function insertarComentarios(nameLlega: string, emailLlega: string, movieId: string, textLlega: string) {
-    console.log("Entra por insertarComentarios");
     try {
         await mongo.Connect(config.mongo);
     } catch (error) {
